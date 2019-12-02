@@ -60,18 +60,20 @@ class _CadastroState extends State<Cadastro> {
   }
 
 Widget _showNameTextField() {
-    return TextField(
+    return TextFormField(
        controller: _nameController,
       keyboardType: TextInputType.text,
       decoration: InputDecoration(
         hintText: 'Digite seu nome',
         prefixIcon: Icon(Icons.person),
       ),
+      validator: (text) => text.isEmpty ? 'Nome inválido' : null,
       textInputAction: TextInputAction.next,
       autofocus: true,
       focusNode: _nameFocusNode,
       onEditingComplete: () =>
           FocusScope.of(context).requestFocus(_dateFocusNode),
+          
     );
   }
   Widget _showDateTextField() {
@@ -107,6 +109,7 @@ Widget _showNameTextField() {
         hintText: 'Digite seu email',
         prefixIcon: Icon(Icons.email),
       ),
+       validator: (text) => text.isEmpty ? 'E-mail inválido' : null,
       textInputAction: TextInputAction.next,
       focusNode: _emailFocusNode,
       onEditingComplete: () =>
@@ -123,6 +126,7 @@ Widget _showNameTextField() {
         hintText: 'Digite uma senha',
         prefixIcon: Icon(Icons.vpn_key),
       ),
+      validator: (text) => text.isEmpty ? 'Senha inválida' : null,
       textInputAction: TextInputAction.next,
       focusNode: _passwordFocusNode,
       onEditingComplete: () =>
@@ -139,6 +143,7 @@ Widget _showNameTextField() {
         hintText: 'Confirmar sua senha',
         prefixIcon: Icon(Icons.vpn_key),
       ),
+      validator: (text) => text.isEmpty ? 'Senha inválida' : null,
       textInputAction: TextInputAction.next,
       focusNode: _confirmPasswordFocusNode,
        onEditingComplete: () =>
@@ -147,7 +152,7 @@ Widget _showNameTextField() {
   }
 
 Widget _showPhoneTextField() {
-    return TextField(
+    return TextFormField(
       controller: _phoneController,
       keyboardType: TextInputType.number,
       maxLength: 11,
@@ -155,6 +160,7 @@ Widget _showPhoneTextField() {
         hintText: 'Digite o numero do seu celular',
         prefixIcon: Icon(Icons.phone),
       ),
+       validator: (text) => text.isEmpty ? 'Celular inválido' : null,
        textInputAction: TextInputAction.next,
       focusNode: _phoneFocusNode,
       onEditingComplete: () =>
@@ -163,7 +169,7 @@ Widget _showPhoneTextField() {
   }
 
 Widget _showCPFTextField() {
-    return TextField(
+    return TextFormField(
       controller: _cpfController,
       keyboardType: TextInputType.number,
       maxLength: 11,
@@ -171,6 +177,7 @@ Widget _showCPFTextField() {
         hintText: 'Digite seu CPF',
         prefixIcon: Icon(Icons.description),
       ),
+      validator: (text) => text.isEmpty ? 'CPF inválido' : null,
       textInputAction: TextInputAction.next,
       focusNode: _cpfFocusNode,
        onEditingComplete: () =>
@@ -179,13 +186,14 @@ Widget _showCPFTextField() {
   }
 
 Widget _showSaldoTextField() {
-    return TextField(
+    return TextFormField(
       controller: _saldoController,
       keyboardType: TextInputType.number,
       decoration: InputDecoration(
         hintText: 'Digite o saldo',
         prefixIcon: Icon(Icons.attach_money),
       ),
+      validator: (text) => text.isEmpty ? 'Saldo inválido' : null,
       textInputAction: TextInputAction.next,
       focusNode: _saldoFocusNode,
     );
