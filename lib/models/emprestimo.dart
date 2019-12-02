@@ -9,6 +9,7 @@ class Emprestimo {
   final String dateDevolucao;
   final String emprestarUserId;
   final String recebeUserId;
+   bool pago;
 
   Emprestimo({
     this.emprestimoId,
@@ -18,6 +19,7 @@ class Emprestimo {
     this.dateDevolucao,
     this.emprestarUserId,
     this.recebeUserId,
+    this.pago,
   });
 
   factory Emprestimo.fromDocument(DocumentSnapshot document) {
@@ -37,6 +39,7 @@ class Emprestimo {
         dateDevolucao: json["dateDevolucao"] == null ? null : json["dateDevolucao"],
         emprestarUserId:json["emprestarUserId"] == null ? null : json["emprestarUserId"],
         recebeUserId:json["recebeUserId"] == null ? null : json["recebeUserId"],
+        pago: json["pago"] == null ? null : json["pago"]
       );
 
   Map<String, dynamic> toMap() => {
@@ -47,5 +50,6 @@ class Emprestimo {
          "dateDevolucao": dateDevolucao == null ? null : dateDevolucao,
         "emprestarUserId": emprestarUserId == null ? null : emprestarUserId,
          "recebeUserId": recebeUserId == null ? null : recebeUserId,
+         "Pago": pago == null ? null : pago,
       };
 }

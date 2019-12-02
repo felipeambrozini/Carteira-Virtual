@@ -219,6 +219,7 @@ _recebeEmprestimoUser.saldo = (int.parse(_recebeEmprestimoUser.saldo) + int.pars
         dateDevolucao: _dateDevolucaoController.text,
         emprestarUserId: _currentUser.userId,
         recebeUserId: _recebeEmprestimoUser.userId,
+        pago: false,
       );
       print('Saving ${_emprestimo.toJson()}');
       await Firestore.instance

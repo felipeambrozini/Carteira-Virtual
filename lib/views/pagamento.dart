@@ -87,6 +87,7 @@ class _PagamentoState extends State<Pagamento> {
 void _pagar(){
     _currentUser.saldo = (int.parse(_currentUser.saldo)   - int.parse(_emprestimo.valor)) as String;
     _emprestouUser.saldo = (int.parse(_emprestouUser.saldo) + int.parse(_emprestimo.valor)) as String ;
+    _emprestimo.pago = true;
     _delete();
     
   }
