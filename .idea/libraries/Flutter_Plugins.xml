@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="Flutter Plugins" type="FlutterPluginsLibraryType">
+    <CLASSES>
+      <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences-0.5.3+4" />
+      <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_analytics-5.0.2" />
+      <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/contacts_service-0.3.4" />
+      <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-0.4.0+9" />
+      <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/permission_handler-3.2.2" />
+      <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-1.4.0" />
+      <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-0.14.0+8" />
+      <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage-3.0.8" />
+      <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/sqflite-1.1.6+5" />
+      <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-0.12.10" />
+      <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker-0.6.1+11" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

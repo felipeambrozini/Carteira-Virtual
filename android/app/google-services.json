@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "447558562240",
+    "firebase_url": "https://carteira-virtual-unisal2019.firebaseio.com",
+    "project_id": "carteira-virtual-unisal2019",
+    "storage_bucket": "carteira-virtual-unisal2019.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447558562240:android:1aee0e4e4cfc36c4755825",
+        "android_client_info": {
+          "package_name": "com.example.projeto_teste"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "447558562240-rhit45tamgga0muvkpps71p5jouhf1vf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAS6QCXujb16h2q0gBLFMG3z-XVxCqs5O4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "447558562240-rhit45tamgga0muvkpps71p5jouhf1vf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
