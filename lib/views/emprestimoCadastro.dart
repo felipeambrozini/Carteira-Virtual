@@ -187,6 +187,7 @@ Widget _showAllUsers(){
       },
     );
 }
+
 Widget _buildCard(document) {
     final user = User.fromDocument(document);
     return ListTile(

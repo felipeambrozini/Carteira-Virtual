@@ -219,9 +219,9 @@ Widget _showSaldoTextField() {
     Flushbar(
       title: 'Novo usuário',
       message: 'Usuário registrado com sucesso!',
-      duration: Duration(seconds: 2),
+      duration: Duration(seconds: 3),
     )..show(context);
-    Navigator.of(context).pushReplacementNamed(Login.routeName);
+    Navigator.of(context).pushNamed(Login.routeName);
   }
 
   Widget _showSignUpButton() {

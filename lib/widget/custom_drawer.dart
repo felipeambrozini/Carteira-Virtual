@@ -40,7 +40,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             title: Text('Perfil'),
             onTap: () {
               Navigator.pop(context);
-              Navigator.of(context).pushReplacementNamed(Perfil.routeName);
+              Navigator.of(context).pushNamed(Perfil.routeName);
             },
           ),
           Divider(),
@@ -49,7 +49,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             title: Text('Emprestar'),
             onTap: () {
               Navigator.pop(context);
-              Navigator.of(context).pushReplacementNamed(EmprestimoCadastro.routeName);
+              Navigator.of(context).pushNamed(EmprestimoCadastro.routeName);
             },
           ),
            ListTile(
@@ -57,7 +57,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             title: Text('Pagar'),
             onTap: () {
               Navigator.pop(context);
-              Navigator.of(context).pushReplacementNamed(Pagamento.routeName);
+              Navigator.of(context).pushNamed(Pagamento.routeName);
             },
           ),
            ListTile(
@@ -65,7 +65,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             title: Text('Termos de uso'),
             onTap: () {
               Navigator.pop(context);
-              Navigator.of(context).pushReplacementNamed(Termo.routeName);
+              Navigator.of(context).pushNamed(Termo.routeName);
             },
           ),
           ListTile(
