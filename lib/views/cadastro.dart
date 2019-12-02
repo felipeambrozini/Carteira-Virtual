@@ -25,15 +25,6 @@ class _CadastroState extends State<Cadastro> {
   final _dateFormat = DateFormat("dd/MM/yyyy");
   final _initialDateValue = DateTime.now();
 
-  final _nameFocusNode = new FocusNode();
-  final _dateFocusNode = new FocusNode();
-  final _emailFocusNode = new FocusNode();
-  final _passwordFocusNode = new FocusNode();
-  final _confirmPasswordFocusNode = new FocusNode();
-  final _phoneFocusNode = new FocusNode();
-  final _cpfFocusNode = new FocusNode();
-  final _saldoFocusNode = new FocusNode();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,13 +58,7 @@ Widget _showNameTextField() {
         hintText: 'Digite seu nome',
         prefixIcon: Icon(Icons.person),
       ),
-      validator: (text) => text.isEmpty ? 'Nome inválido' : null,
-      textInputAction: TextInputAction.next,
-      autofocus: true,
-      focusNode: _nameFocusNode,
-      onEditingComplete: () =>
-          FocusScope.of(context).requestFocus(_dateFocusNode),
-          
+      validator: (text) => text.isEmpty ? 'Nome inválido' : null,     
     );
   }
   Widget _showDateTextField() {
@@ -94,10 +79,6 @@ Widget _showNameTextField() {
           lastDate: DateTime(2100),
         );
       },
-       textInputAction: TextInputAction.next,
-      focusNode: _dateFocusNode,
-      onEditingComplete: () =>
-      FocusScope.of(context).requestFocus(_emailFocusNode),
     );
   }
 
@@ -110,10 +91,6 @@ Widget _showNameTextField() {
         prefixIcon: Icon(Icons.email),
       ),
        validator: (text) => text.isEmpty ? 'E-mail inválido' : null,
-      textInputAction: TextInputAction.next,
-      focusNode: _emailFocusNode,
-      onEditingComplete: () =>
-          FocusScope.of(context).requestFocus(_passwordFocusNode),
     );
   }
 
@@ -127,10 +104,6 @@ Widget _showNameTextField() {
         prefixIcon: Icon(Icons.vpn_key),
       ),
       validator: (text) => text.isEmpty ? 'Senha inválida' : null,
-      textInputAction: TextInputAction.next,
-      focusNode: _passwordFocusNode,
-      onEditingComplete: () =>
-          FocusScope.of(context).requestFocus(_confirmPasswordFocusNode),
     );
   }
 
@@ -144,10 +117,6 @@ Widget _showNameTextField() {
         prefixIcon: Icon(Icons.vpn_key),
       ),
       validator: (text) => text.isEmpty ? 'Senha inválida' : null,
-      textInputAction: TextInputAction.next,
-      focusNode: _confirmPasswordFocusNode,
-       onEditingComplete: () =>
-          FocusScope.of(context).requestFocus(_phoneFocusNode)
     );
   }
 
@@ -161,10 +130,6 @@ Widget _showPhoneTextField() {
         prefixIcon: Icon(Icons.phone),
       ),
        validator: (text) => text.isEmpty ? 'Celular inválido' : null,
-       textInputAction: TextInputAction.next,
-      focusNode: _phoneFocusNode,
-      onEditingComplete: () =>
-          FocusScope.of(context).requestFocus(_cpfFocusNode)
     );
   }
 
@@ -178,10 +143,6 @@ Widget _showCPFTextField() {
         prefixIcon: Icon(Icons.description),
       ),
       validator: (text) => text.isEmpty ? 'CPF inválido' : null,
-      textInputAction: TextInputAction.next,
-      focusNode: _cpfFocusNode,
-       onEditingComplete: () =>
-          FocusScope.of(context).requestFocus(_saldoFocusNode)
     );
   }
 
@@ -194,8 +155,6 @@ Widget _showSaldoTextField() {
         prefixIcon: Icon(Icons.attach_money),
       ),
       validator: (text) => text.isEmpty ? 'Saldo inválido' : null,
-      textInputAction: TextInputAction.next,
-      focusNode: _saldoFocusNode,
     );
   }
 
