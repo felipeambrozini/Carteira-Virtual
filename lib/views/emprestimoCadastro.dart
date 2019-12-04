@@ -109,6 +109,7 @@ class _EmprestimoCadastro extends State<EmprestimoCadastro> {
   Widget _buildValorTextField() {
     return TextFormField(
       controller: _valorController,
+      keyboardType: TextInputType.number,
       maxLines: 1,
       decoration: InputDecoration(
         labelText: 'Digite o valor do empréstimo',
@@ -121,6 +122,7 @@ class _EmprestimoCadastro extends State<EmprestimoCadastro> {
   Widget _buildDateTextField() {
     return DateTimeField(
       controller: _dateController,
+      keyboardType: TextInputType.datetime,
       format: _dateFormat,
       initialValue: _initialDateValue,
       decoration: InputDecoration(
@@ -142,6 +144,7 @@ class _EmprestimoCadastro extends State<EmprestimoCadastro> {
   Widget _buildDateDevoluTextField() {
     return DateTimeField(
       controller: _dateDevolucaoController,
+       keyboardType: TextInputType.datetime,
       format: _dateFormat,
       initialValue: _initialDateValue,
       decoration: InputDecoration(
