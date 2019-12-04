@@ -37,20 +37,17 @@ User _currentUser;
       title: Text('Perfil'),
     );
   }
-
+  
    Widget _buildBody() {
         return new Card(
           child: new Column(children: <Widget>[
             new Text("Nome: " + _currentUser.name + "\n"),
+            new Text("Data de nascimento: " + _currentUser.date + "\n"), 
             new Text("Email: " + _currentUser.email +"\n"),
             new Text("CPF: " + _currentUser.cpf +"\n"),
             new Text("Celular: " + _currentUser.phone + "\n"),
             new Text("Saldo: " + _currentUser.saldo)],
           ),
         );
-
   }
-
-
-  
 }

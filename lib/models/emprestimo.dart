@@ -4,12 +4,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class Emprestimo {
   final String emprestimoId;
   final String description;
-  final String valor;
+  String valor;
   final String date;
   final String dateDevolucao;
   final String emprestarUserId;
   final String recebeUserId;
-   bool pago;
+  String stausPagamento;
 
   Emprestimo({
     this.emprestimoId,
@@ -19,7 +19,7 @@ class Emprestimo {
     this.dateDevolucao,
     this.emprestarUserId,
     this.recebeUserId,
-    this.pago,
+    this.stausPagamento,
   });
 
   factory Emprestimo.fromDocument(DocumentSnapshot document) {
@@ -39,7 +39,7 @@ class Emprestimo {
         dateDevolucao: json["dateDevolucao"] == null ? null : json["dateDevolucao"],
         emprestarUserId:json["emprestarUserId"] == null ? null : json["emprestarUserId"],
         recebeUserId:json["recebeUserId"] == null ? null : json["recebeUserId"],
-        pago: json["pago"] == null ? null : json["pago"]
+        stausPagamento: json["stausPagamento"] == null ? null : json["stausPagamento"]
       );
 
   Map<String, dynamic> toMap() => {
@@ -50,6 +50,6 @@ class Emprestimo {
          "dateDevolucao": dateDevolucao == null ? null : dateDevolucao,
         "emprestarUserId": emprestarUserId == null ? null : emprestarUserId,
          "recebeUserId": recebeUserId == null ? null : recebeUserId,
-         "Pago": pago == null ? null : pago,
+         "stausPagamento": stausPagamento == null ? null : stausPagamento,
       };
 }

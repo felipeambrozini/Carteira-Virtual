@@ -21,7 +21,7 @@ class Common {
               child: Text("Sim"),
               onPressed: () {
                 Auth.signOut();
-                Navigator.pushReplacementNamed(context, Login.routeName);
+                Navigator.pushNamed(context, Login.routeName);
               },
             ),
             FlatButton(

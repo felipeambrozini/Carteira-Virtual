@@ -9,6 +9,7 @@ import 'package:projeto_teste/views/perfil.dart';
 import 'package:projeto_teste/views/sobre.dart';
 import 'package:projeto_teste/views/splash.dart';
 import 'package:projeto_teste/views/termo.dart';
+import 'package:projeto_teste/views/visualizarEmprestimo.dart';
 
 void main() {
   runApp(MyApp());
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
        Pagamento.routeName:(context) => new Pagamento(),
        Splash.routeName:(context) => new Splash(),
        EmprestimoCadastro.routeName:(context)=> new EmprestimoCadastro(),
+       VisualizarEmprestimo.routeName:(context)=> new VisualizarEmprestimo(),
       },
 
       localizationsDelegates: [

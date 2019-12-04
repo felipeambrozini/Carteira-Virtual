@@ -5,10 +5,11 @@ import 'package:projeto_teste/models/emprestimo.dart';
 import 'package:projeto_teste/models/user.dart';
 import 'package:projeto_teste/services/auth.dart';
 import 'package:projeto_teste/utils/common.dart';
+import 'package:projeto_teste/views/emprestimoCadastro.dart';
 import 'package:projeto_teste/widget/custom_drawer.dart';
 
 class Pagamento extends StatefulWidget {
-  static const String routeName = 'pagamento';
+  static const String routeName = '/pagamento';
   
   _PagamentoState createState() => _PagamentoState();
 }
@@ -42,7 +43,7 @@ class _PagamentoState extends State<Pagamento> {
 
   Widget _buildAppBar() {
     return AppBar(
-      title: Text('Pagamento de empréstimo'),
+      title: Text('Pagar empréstimos'),
     );
   }
 
@@ -68,6 +69,7 @@ class _PagamentoState extends State<Pagamento> {
                   message: "Nenhum Empréstimo encontrado!");
             else
               return ListView(
+                scrollDirection: Axis.vertical,
                 children: snapshot.data.documents.map(_buildCard).toList(),
               );
         }
@@ -79,45 +81,32 @@ class _PagamentoState extends State<Pagamento> {
   Widget _buildCard(document) {
     final emprestimo = Emprestimo.fromDocument(document);
     return ListTile(
-      title: Text(emprestimo.description),
-      subtitle: Text("RS " + emprestimo.valor),
+      title: Text("Valor: " + emprestimo.valor),
+      subtitle: Text("Pago: " + emprestimo.stausPagamento),
       onTap: _pagar,
     );
   }
 void _pagar(){
+    _juros();
     _currentUser.saldo = (int.parse(_currentUser.saldo)   - int.parse(_emprestimo.valor)) as String;
     _emprestouUser.saldo = (int.parse(_emprestouUser.saldo) + int.parse(_emprestimo.valor)) as String ;
-    _emprestimo.pago = true;
-    _delete();
-    
-  }
-Future _delete() async {
-      await Firestore.instance
-          .collection('emprestimo')
-          .document(_emprestimo.emprestimoId)
-          .delete()
-          .then(_onDeleteDataSuccess)
-          .catchError(_onDeleteDataFailure);
-    }
-  }
-
-  void _onDeleteDataSuccess(result) {
-Flushbar(
+    _emprestimo.stausPagamento = ('pago');
+    Flushbar(
       title: 'Pagamento',
       message: 'Pagamento realizado com sucesso!',
-      duration: Duration(seconds: 2),
-    )..show(result);
-    Navigator.pop(result);
+      duration: Duration(seconds: 3),
+    )..show(context);
+    Navigator.of(context).pushNamed(EmprestimoCadastro.routeName);   
   }
 
-  void _onDeleteDataFailure(error) {
-    print('Error ${error.toString()})');
-    Flushbar(
-      title: 'Erro',
-      message: error.toString(),
-      duration: Duration(seconds: 3),
-    )..show(error);
-  }
+void _juros(){
+final _initialDateValue = DateTime.now();
+  if (_initialDateValue as String != _emprestimo.dateDevolucao) {
+      _emprestimo.valor = (int.parse(_emprestimo.valor) + int.parse(_emprestimo.valor)*1.1) as String;
+  } 
+}
+
+}
   
 
   

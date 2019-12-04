@@ -4,20 +4,22 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class User {
   String userId;
   String name;
+  String date;
   String email;
   String cpf;
   String phone;
   String saldo;
-  String date;
+ 
 
   User({
     this.userId,
     this.name,
+    this.date,
     this.email,
     this.cpf,
     this.phone,
     this.saldo,
-    this.date,
+    
   });
 
    String getInitials() {
@@ -38,20 +40,20 @@ class User {
   factory User.fromMap(Map<String, dynamic> json) => User(
         userId: json["userID"] == null ? null : json["userID"],
         name: json["name"] == null ? null : json["name"],
+        date: json["date"] == null ? null : json["date"],
         email: json["email"] == null ? null : json["email"],
         cpf:  json["cpf"] == null ? null : json["cpf"],
         phone: json["phone"] == null ? null : json["phone"],
         saldo: json["saldo"] == null ? null : json["saldo"],
-        date: json["date"] == null ? null : json["date"],
       );
 
   Map<String, dynamic> toMap() => {
         "userID": userId == null ? null : userId,
         "name": name == null ? null : name,
+        "date": date == null ? null : date,
         "email": email == null ? null : email,
         "cpf":  cpf == null ? null : cpf,
         "phone": phone == null ? null : phone,
         "saldo": saldo == null ? null : saldo,
-        "date": date == null ? null : date,
       };
 }

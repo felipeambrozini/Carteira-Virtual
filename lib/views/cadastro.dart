@@ -175,10 +175,11 @@ Widget _showSaldoTextField() {
   void _onResultSignUpSuccess(String userId) {
     final email = _emailController.text;
     final name = _nameController.text;
+    final date = _dateController.text;
     final phone = _phoneController.text;
     final cpf = _cpfController.text;
     final saldo = _saldoController.text;
-    final user = User(userId: userId, name: name, email: email, phone: phone, cpf: cpf, saldo: saldo);
+    final user = User(userId: userId, name: name, date: date, email: email, phone: phone, cpf: cpf, saldo: saldo);
     Auth.addUser(user).then(_onResultAddUser);
   }
 

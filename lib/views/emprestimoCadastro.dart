@@ -8,6 +8,7 @@ import 'package:projeto_teste/models/emprestimo.dart';
 import 'package:projeto_teste/models/user.dart';
 import 'package:projeto_teste/services/auth.dart';
 import 'package:projeto_teste/utils/common.dart';
+import 'package:projeto_teste/views/visualizarEmprestimo.dart';
 import 'package:projeto_teste/widget/custom_drawer.dart';
 
 class EmprestimoCadastro extends StatefulWidget {
@@ -43,6 +44,7 @@ class _EmprestimoCadastro extends State<EmprestimoCadastro> {
       _descriptionController.text = _emprestimo.description;
       _valorController.text = _emprestimo.valor;
       _dateController.text = _emprestimo.date;
+      _dateDevolucaoController.text = _emprestimo.dateDevolucao;
       _recebeEmprestimoUser.userId = _emprestimo.recebeUserId;
       _currentUser.userId = _emprestimo.emprestarUserId;
     }
@@ -51,7 +53,7 @@ class _EmprestimoCadastro extends State<EmprestimoCadastro> {
 
   Future _loadLocalUser() async {
     final user = await Auth.getUserLocal();
-   final recebeuser = await Auth.getUserLocal();
+    final recebeuser = await Auth.getUserLocal();
     setState(() {
       _currentUser = user;
       _recebeEmprestimoUser = recebeuser;
@@ -70,11 +72,9 @@ class _EmprestimoCadastro extends State<EmprestimoCadastro> {
 
   Widget _buildAppBar() {
     return AppBar(
-      title: Text('Empréstimo'),
+      title: Text('Realizar empréstimos'),
     );
   }
-
-  
 
   Widget _buildBody() {
     return SingleChildScrollView(
@@ -180,6 +180,7 @@ Widget _showAllUsers(){
             else
               return ListView(
                 shrinkWrap: true,
+                scrollDirection: Axis.vertical,
                 children: snapshot.data.documents.map(_buildCard).toList(),
               );
         }
@@ -191,7 +192,7 @@ Widget _showAllUsers(){
 Widget _buildCard(document) {
     final user = User.fromDocument(document);
     return ListTile(
-      title: Text(user.name),
+      title: Text("Nome: " + user.name),
       onTap: _emprestar,
     );
   }
@@ -220,8 +221,9 @@ _recebeEmprestimoUser.saldo = (int.parse(_recebeEmprestimoUser.saldo) + int.pars
         dateDevolucao: _dateDevolucaoController.text,
         emprestarUserId: _currentUser.userId,
         recebeUserId: _recebeEmprestimoUser.userId,
-        pago: false,
+        stausPagamento: ("não pago"),
       );
+
       print('Saving ${_emprestimo.toJson()}');
       await Firestore.instance
           .collection('emprestimo')
@@ -235,18 +237,19 @@ _recebeEmprestimoUser.saldo = (int.parse(_recebeEmprestimoUser.saldo) + int.pars
     Flushbar(
       title: 'Novo emprestimo',
       message: 'Emprestimo realizado com sucesso!',
-      duration: Duration(seconds: 2),
+      duration: Duration(seconds: 3),
     )..show(context);
     Navigator.pop(context, result);
+     Navigator.of(context).pushNamed(VisualizarEmprestimo.routeName);
   }
 
   void _onSaveDataFailure(error) {
     print('Error ${error.toString()})');
-
     Flushbar(
       title: 'Erro',
       message: error.toString(),
       duration: Duration(seconds: 3),
     )..show(context);
   }
+
 }
