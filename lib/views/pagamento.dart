@@ -102,9 +102,18 @@ Widget _buildCard(document) {
   }
 
 void _pagar(){
+  final _initialDateValue = DateTime.now();
+  if (_initialDateValue as String != _emprestimo.datePagamento) {
+       _emprestimo.valor = (int.parse(_emprestimo.valor) + int.parse(_emprestimo.valor)*1.1) as String;
+       _currentUser.saldo = (int.parse(_currentUser.saldo)   - int.parse(_emprestimo.valor)) as String;
+       _emprestouUser.saldo = (int.parse(_emprestouUser.saldo) + int.parse(_emprestimo.valor)) as String ;
+       _emprestimo.stausPagamento = ('Sim');
+      }
+      else{
     _currentUser.saldo = (int.parse(_currentUser.saldo)   - int.parse(_emprestimo.valor)) as String;
     _emprestouUser.saldo = (int.parse(_emprestouUser.saldo) + int.parse(_emprestimo.valor)) as String ;
     _emprestimo.stausPagamento = ('Sim');
+      }
 }
 
 void _pagarmensagem(){
