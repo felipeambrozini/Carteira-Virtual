@@ -24,6 +24,6 @@ class _SobreState extends State<Sobre> {
   }
 
   Widget _buildBody() {
-    return Center(child: Text('O aplicativo Carteira Virtual foi criado para facilitar empréstimos'));
+    return Center(child: Text('O aplicativo Carteira Virtual foi criado para realizar empréstimos entre amigos sem juros.'));
   }
 }

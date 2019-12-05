@@ -27,7 +27,7 @@ class _EmprestimoCadastro extends State<EmprestimoCadastro> {
   final _descriptionController = new TextEditingController();
   final _valorController = new TextEditingController();
   final _dateController = new TextEditingController();
-  final _dateDevolucaoController = new TextEditingController();
+  final _datePagamentoController = new TextEditingController();
   final _dateFormat = DateFormat("dd/MM/yyyy");
   final _initialDateValue = DateTime.now();
   
@@ -44,7 +44,7 @@ class _EmprestimoCadastro extends State<EmprestimoCadastro> {
       _descriptionController.text = _emprestimo.description;
       _valorController.text = _emprestimo.valor;
       _dateController.text = _emprestimo.date;
-      _dateDevolucaoController.text = _emprestimo.dateDevolucao;
+      _datePagamentoController.text = _emprestimo.datePagamento;
       _recebeEmprestimoUser.userId = _emprestimo.recebeUserId;
       _currentUser.userId = _emprestimo.emprestarUserId;
     }
@@ -143,7 +143,7 @@ class _EmprestimoCadastro extends State<EmprestimoCadastro> {
 
   Widget _buildDateDevoluTextField() {
     return DateTimeField(
-      controller: _dateDevolucaoController,
+      controller: _datePagamentoController,
        keyboardType: TextInputType.datetime,
       format: _dateFormat,
       initialValue: _initialDateValue,
@@ -221,10 +221,10 @@ _recebeEmprestimoUser.saldo = (int.parse(_recebeEmprestimoUser.saldo) + int.pars
         description: _descriptionController.text,
         valor: _valorController.text,
         date: _dateController.text,
-        dateDevolucao: _dateDevolucaoController.text,
+        datePagamento: _datePagamentoController.text,
         emprestarUserId: _currentUser.userId,
         recebeUserId: _recebeEmprestimoUser.userId,
-        stausPagamento: ("não pago"),
+        stausPagamento: ("Não"),
       );
 
       print('Saving ${_emprestimo.toJson()}');

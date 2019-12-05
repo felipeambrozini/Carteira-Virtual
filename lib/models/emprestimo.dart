@@ -6,7 +6,7 @@ class Emprestimo {
   final String description;
   String valor;
   final String date;
-  final String dateDevolucao;
+  final String datePagamento;
   final String emprestarUserId;
   final String recebeUserId;
   String stausPagamento;
@@ -16,7 +16,7 @@ class Emprestimo {
     this.description,
     this.valor,
     this.date,
-    this.dateDevolucao,
+    this.datePagamento,
     this.emprestarUserId,
     this.recebeUserId,
     this.stausPagamento,
@@ -36,7 +36,7 @@ class Emprestimo {
         description: json["description"] == null ? null : json["description"],
         valor: json["valor"] == null ? null : json["valor"],
         date: json["date"] == null ? null : json["date"],
-        dateDevolucao: json["dateDevolucao"] == null ? null : json["dateDevolucao"],
+        datePagamento: json["datePagamento"] == null ? null : json["datePagamento"],
         emprestarUserId:json["emprestarUserId"] == null ? null : json["emprestarUserId"],
         recebeUserId:json["recebeUserId"] == null ? null : json["recebeUserId"],
         stausPagamento: json["stausPagamento"] == null ? null : json["stausPagamento"]
@@ -47,7 +47,7 @@ class Emprestimo {
         "description": description == null ? null : description, 
         "valor": valor == null ? null : valor,
         "date": date == null ? null : date,
-         "dateDevolucao": dateDevolucao == null ? null : dateDevolucao,
+         "datePagamento": datePagamento == null ? null : datePagamento,
         "emprestarUserId": emprestarUserId == null ? null : emprestarUserId,
          "recebeUserId": recebeUserId == null ? null : recebeUserId,
          "stausPagamento": stausPagamento == null ? null : stausPagamento,

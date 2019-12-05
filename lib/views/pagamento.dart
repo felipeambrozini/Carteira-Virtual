@@ -5,7 +5,7 @@ import 'package:projeto_teste/models/emprestimo.dart';
 import 'package:projeto_teste/models/user.dart';
 import 'package:projeto_teste/services/auth.dart';
 import 'package:projeto_teste/utils/common.dart';
-import 'package:projeto_teste/views/emprestimoCadastro.dart';
+import 'package:projeto_teste/views/visualizarEmprestimo.dart';
 import 'package:projeto_teste/widget/custom_drawer.dart';
 
 class Pagamento extends StatefulWidget {
@@ -36,8 +36,9 @@ class _PagamentoState extends State<Pagamento> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(),
-      drawer: CustomDrawer(),
       body: _buildBody(),
+      drawer: CustomDrawer(),
+      floatingActionButton: _buildFloatingActionButton(),
     );
   }
 
@@ -46,7 +47,6 @@ class _PagamentoState extends State<Pagamento> {
       title: Text('Pagar empréstimos'),
     );
   }
-
 
   Widget _buildBody() {
     if (_currentUser == null) return Common.progressContainer();
@@ -78,36 +78,42 @@ class _PagamentoState extends State<Pagamento> {
     );
   }
 
-  Widget _buildCard(document) {
+Widget _buildCard(document) {
     final emprestimo = Emprestimo.fromDocument(document);
-    return ListTile(
-      title: Text("Valor: " + emprestimo.valor),
-      subtitle: Text("Pago: " + emprestimo.stausPagamento),
-      onTap: _pagar,
+    return new GestureDetector(
+  onTap: _pagar,
+  child: new Card(child: new Column(children: <Widget>[
+            new Text("Descrição: " + emprestimo.description+ "\n"),
+            new Text("Valor: " + emprestimo.valor+ "\n"),
+            new Text("Data: " + emprestimo.date + "\n"), 
+            new Text("Data de pagamento: " + emprestimo.datePagamento +"\n"),
+            new Text("Status do pagamento: " + emprestimo.stausPagamento +"\n"),
+          ],
+          ),),
+);
+}
+
+  Widget _buildFloatingActionButton() {
+    return FloatingActionButton.extended(
+      label: Text('Realizar pagamento'),
+      icon: Icon(Icons.payment),
+      onPressed: _pagarmensagem,
     );
   }
+
 void _pagar(){
-    _juros();
     _currentUser.saldo = (int.parse(_currentUser.saldo)   - int.parse(_emprestimo.valor)) as String;
     _emprestouUser.saldo = (int.parse(_emprestouUser.saldo) + int.parse(_emprestimo.valor)) as String ;
-    _emprestimo.stausPagamento = ('pago');
+    _emprestimo.stausPagamento = ('Sim');
+}
+
+void _pagarmensagem(){
     Flushbar(
       title: 'Pagamento',
       message: 'Pagamento realizado com sucesso!',
       duration: Duration(seconds: 3),
     )..show(context);
-    Navigator.of(context).pushNamed(EmprestimoCadastro.routeName);   
+    Navigator.of(context).pushNamed(VisualizarEmprestimo.routeName);   
   }
 
-void _juros(){
-final _initialDateValue = DateTime.now();
-  if (_initialDateValue as String != _emprestimo.dateDevolucao) {
-      _emprestimo.valor = (int.parse(_emprestimo.valor) + int.parse(_emprestimo.valor)*1.1) as String;
-  } 
 }
-
-}
-  
-
-  
-

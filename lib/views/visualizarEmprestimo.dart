@@ -73,10 +73,16 @@ class _VisualizarEmprestimoState extends State<VisualizarEmprestimo> {
 
   Widget _buildCard(document) {
     final emprestimo = Emprestimo.fromDocument(document);
-    return ListTile(
-      title: Text("Valor: " + emprestimo.valor),
-      subtitle: Text("Data de pagamento: " + emprestimo.dateDevolucao),
-    );
+    return new Card(
+          child: new Column(children: <Widget>[
+            new Text("Descrição: " + emprestimo.description + "\n"),
+            new Text("Valor: " + emprestimo.valor + "\n"),
+            new Text("Data: " + emprestimo.date + "\n"), 
+            new Text("Data de devolução: " + emprestimo.datePagamento + "\n"),
+            new Text("Status do pagamento: " + emprestimo.stausPagamento +"\n"),
+          ],
+          ),
+        );
 }
 
 }

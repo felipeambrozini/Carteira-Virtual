@@ -25,7 +25,6 @@ class MyApp extends StatelessWidget {
         ),
       debugShowCheckedModeBanner: false,
       home: Splash(),
-      
       initialRoute: '/',
       routes: <String, WidgetBuilder>{
        Cadastro.routeName:(context) => new Cadastro(),
@@ -44,6 +43,7 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
+
       supportedLocales: [
         const Locale('pt'), 
         const Locale('en'), 
@@ -53,7 +53,5 @@ class MyApp extends StatelessWidget {
     );
 
   }
+  
 }
-
-
-
