@@ -107,4 +107,5 @@ class _CustomDrawerState extends State<CustomDrawer> {
           CircleAvatar(child: Text(_user?.getInitials() ?? '')),
     );
   }
+  
 }

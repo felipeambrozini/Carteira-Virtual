@@ -33,7 +33,7 @@ Widget _introScreen() {
           ],
         ),
         navigateAfterSeconds: Login(),
-        loaderColor: Colors.green,
+        loaderColor: Colors.white,
       ),
       Container(
         decoration: BoxDecoration(
